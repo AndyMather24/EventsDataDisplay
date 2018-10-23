@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Events = ({ data, choice }) => {
-    console.log(data);
+
     let chosenData = data.filter(event => event.classifications[0].segment.name === choice);
+
     return (
         <div>
+            {console.log(chosenData)}
             {chosenData.map((event) => {
-                return(
-                    <div>
-                    <p key={event.id}>{event.name}</p>
-                    <p>{event.dates.start.localDate}</p>
-                    <img src={event.images[0].url} width="400" height="auto"></img>
-                    
-                    
+
+                return (
+                    <div key={event.id}>
+                        <h4 >{event.name}</h4>
+                        <p>Date: {event.dates.start.localDate}</p>
+                        {event.priceRanges && <p>{event.priceRanges[0].currency} {event.priceRanges[0].min}-{event.priceRanges[0].max}</p>}
+                        <img src={event.images[0].url} width="400" height="auto"></img>
 
                     </div>
                 )
@@ -23,7 +25,7 @@ const Events = ({ data, choice }) => {
 };
 
 Events.propTypes = {
-    
+
 };
 
 export default Events;

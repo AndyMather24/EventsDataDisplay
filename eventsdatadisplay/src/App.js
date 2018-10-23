@@ -4,6 +4,7 @@ import './App.css';
 import Options from './components/Options';
 import config from './config.js';
 import Events from './components/Events.jsx';
+import Pie from './components/Pie';
 
 class App extends Component {
   state = {
@@ -13,9 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1> UK EVENTS </h1>
-        <Options chooseGenre={this.selectGenre} data={this.state.eventsData}/>
-        {this.state.eventsData.length && <Events data={this.state.eventsData} choice={this.state.chosenGenre}/>}
+        <h1> EVENTS </h1>
+        <Options chooseGenre={this.selectGenre} data={this.state.eventsData} />
+        <Pie />
+        {this.state.eventsData.length && <Events data={this.state.eventsData} choice={this.state.chosenGenre} />}
       </div>
     );
   }
@@ -36,14 +38,9 @@ class App extends Component {
   selectGenre = (event) => {
     this.setState({
       chosenGenre: event.target.value
-    }, () => {
-      console.log(this.state.chosenGenre);
     });
   };
 
-  displayGenres = () => {
-    
-  };
 
 }
 
