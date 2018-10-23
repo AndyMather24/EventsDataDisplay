@@ -3,15 +3,19 @@ import axios from 'axios';
 import './App.css';
 import Options from './components/Options';
 import config from './config.js';
+import Events from './components/Events.jsx';
+
 class App extends Component {
   state = {
-    eventsData: []
+    eventsData: [],
+    chosenGenre: ''
   }
   render() {
     return (
       <div className="App">
         <h1> UK EVENTS </h1>
-        <Options />
+        <Options chooseGenre={this.selectGenre} data={this.state.eventsData}/>
+        {this.state.eventsData.length && <Events data={this.state.eventsData} choice={this.state.chosenGenre}/>}
       </div>
     );
   }
@@ -29,11 +33,17 @@ class App extends Component {
       })
     }))
   }
-  selectGenre = (selectedGenre) => {
+  selectGenre = (event) => {
     this.setState({
-      chosenGenre: selectedGenre
-    })
-  }
+      chosenGenre: event.target.value
+    }, () => {
+      console.log(this.state.chosenGenre);
+    });
+  };
+
+  displayGenres = () => {
+    
+  };
 
 }
 
