@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const Options = ({ selectGenre }) => {
     return (
         <div>
-            <select onChange={this.selectGenre}>
+            {/* <select onChange={this.selectGenre}>
                 <option value='Music'> Music</option>
                 <option value='Sport'> Sport</option>
-            </select>
+            </select>  */}
 
         </div>
     );
