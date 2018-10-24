@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router } from '@reach/router';
 import PropTypes from 'prop-types';
 
 const Options = ({ chooseGenre, data }) => {
