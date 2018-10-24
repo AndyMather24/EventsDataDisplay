@@ -6,7 +6,7 @@ const Events = ({ data, choice }) => {
     let chosenData = data.filter(event => event.classifications[0].segment.name === choice);
 
     return (
-        <div>
+        <div className='events'>
             {console.log(chosenData)}
             {chosenData.map((event) => {
 
@@ -16,6 +16,7 @@ const Events = ({ data, choice }) => {
                         <p>Date: {event.dates.start.localDate}</p>
                         {event.priceRanges && <p>{event.priceRanges[0].currency} {event.priceRanges[0].min}-{event.priceRanges[0].max}</p>}
                         <img src={event.images[0].url} width="400" height="auto"></img>
+                        <a className='Nav' href={event.url}>Tickets</a>
 
                     </div>
                 )

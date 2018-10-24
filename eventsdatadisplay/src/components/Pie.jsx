@@ -3,9 +3,9 @@ import { Pie } from 'react-chartjs-2';
 
 const data = {
 	labels: [
-		'Red',
-		'Green',
-		'Yellow'
+		'Sports',
+		'Music',
+		'Arts & Theatre'
 	],
 	datasets: [{
 		data: [300, 50, 100],

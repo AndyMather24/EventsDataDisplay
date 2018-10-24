@@ -3,7 +3,6 @@ import { Router } from '@reach/router';
 import PropTypes from 'prop-types';
 
 const Options = ({ chooseGenre, data }) => {
-    // event.classifications[0].segment.name
     let choices = data.reduce((acc, val) => {
         if (!acc.includes(val.classifications[0].segment.name)) {
             acc.push(val.classifications[0].segment.name);
